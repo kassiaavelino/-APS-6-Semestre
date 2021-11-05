@@ -4,13 +4,17 @@ import imgcompare
 import os
 import sys
 from time import sleep
+from conectmysql import LerTabela
 
 root = tk.Tk() 
 root.withdraw()
+
 # nivel 1 - todos tem acesso
 def funcionarioX():
      sleep(1)
-     print("Seja Bem Vindo FuncionárioX!")
+     print("Seja Bem Vindo FuncionárioX!")   
+     LerTabela()  
+     
      sys.exit()
      
 # nivel 2 - somente diretores de divisão 
@@ -45,6 +49,7 @@ def compare1():
           # print("são iguais.")
           # print("imagem selecionada: ", file_path)
           funcionarioX() 
+          
 
      # elif img_aps1:
      #      # print ("são iguais")
