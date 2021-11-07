@@ -1,45 +1,39 @@
 import mysql.connector
 
+# | nome_propri   |  cpf_propri     | tel_propri         | endereco_local |
+# | tamanho_local | tipo_agrotoxico | nivel_contaminacao |                |
+
 db = mysql.connector.connect(
     host='127.0.0.1',
     user='root',
     password='',
-    database='testecadastro'
+    database='aps_infos'
 )
 
 cursor = db.cursor()
 
-# criar bd
-
-def CriarBase():
-    cursor.execute("CREATE DATABASE testecadastro")
-#CriarBase()
-
-# criar tabela
-
-def CriarTabela():
-    cursor.execute("CREATE TABLE usuarios (nome TEXT, senha TEXT)")
-#CriarTabela()
-# inserir
-
-def InserirDados():
-    input_nome = input("Digite seu nome: ")
-    input_senha = input("Digite sua senha: ")
-
-    comando_sql = "INSERT INTO usuarios (nome,senha) VALUES (%s,%s)"
-    valores = (input_nome,input_senha)
-
-    cursor.execute(comando_sql,valores)
-    db.commit()
-
-InserirDados()
-
-def LerTabela():
-    cursor.execute("SELECT * FROM usuarios")
+def LerMinistro():
+    cursor.execute("SELECT * FROM tb_propriedades")
 
     result = cursor.fetchall()
 
     for x in result:
         print(x)
 
-LerTabela()       
+# LerTabela()       
+
+def LerDiretor():
+    cursor.execute("SELECT nome_propri, tel_propri, tipo_agrotoxico, nivel_contaminacao FROM tb_propriedades")
+    
+    result = cursor.fetchall()
+
+    for x in result:
+        print(x)
+
+def LerFuncionario():
+    cursor.execute("SELECT nome_propri, tel_propri, nivel_contaminacao FROM tb_propriedades")
+    
+    result = cursor.fetchall()
+
+    for x in result:
+        print(x)

@@ -4,31 +4,40 @@ import imgcompare
 import os
 import sys
 from time import sleep
-from conectmysql import LerTabela
+from conectmysql import *
 
 root = tk.Tk() 
 root.withdraw()
 
 # nivel 1 - todos tem acesso
-def funcionarioX():
+def funcionario():
      sleep(1)
-     print("Seja Bem Vindo FuncionárioX!")   
-     LerTabela()  
+     print("Seja Bem Vindo Funcionário!\n")
+     sleep(1)  
+     LerFuncionario()
      
      sys.exit()
      
 # nivel 2 - somente diretores de divisão 
 def diretor_div():
      sleep(1)
-     print("Seja Bem Vindo Diretor!")
+     print("Seja Bem Vindo Diretor!\n")
+     sleep(1) 
+     LerDiretor()
+
+     sys.exit()
 
 # nivel 3 - somente ministro do meio ambiente
 def ministro():
      sleep(1)
-     print("Seja Bem Vindo Senhor Ministro!")
+     print("Seja Bem Vindo Senhor Ministro!\n")
+     sleep(1) 
+     LerMinistro()
+
+     sys.exit()
 
 def compare1():     
-     print('Lendo biometria.. ')
+     print('Lendo biometria.. \n')
      sleep(1)  
 
      file_path = filedialog.askopenfilename()
@@ -48,7 +57,7 @@ def compare1():
      if  percentage:
           # print("são iguais.")
           # print("imagem selecionada: ", file_path)
-          funcionarioX() 
+          funcionario() 
           
 
      # elif img_aps1:
@@ -60,7 +69,7 @@ def compare1():
           print("Falha na leitura biométrica\n")
           sys.exit()
 def compare2():
-     print('Lendo biometria.. ')
+     print('Lendo biometria.. \n')
      sleep(1)   
 
      file_path = filedialog.askopenfilename()
@@ -85,7 +94,7 @@ def compare2():
 
 
 def compare3():
-     print('Lendo biometria.. ')
+     print('Lendo biometria.. \n')
      sleep(1)  
 
      file_path = filedialog.askopenfilename()
