@@ -9,6 +9,51 @@ from conectmysql import *
 root = tk.Tk() 
 root.withdraw()
 
+def menu_Func():
+     while(True):
+          opc_menu_Func = int(input("1"))
+          if(opc_menu_Func == 1):
+               print("")               
+               auth_func()          
+          elif(opc_menu_Func == 2):
+               print("")
+               auth_diretor()
+          elif(opc_menu_Func == 3):
+               print("")
+               auth_ministro()
+          elif(opc_menu_Func >= 4):
+               sys.exit()
+
+def menu_Diretor():
+     while(True):
+          opc_menu_Func = int(input(""))
+          if(opc_menu_Func == 1):
+               print("")               
+               auth_func()          
+          elif(opc_menu_Func == 2):
+               print("")
+               auth_diretor()
+          elif(opc_menu_Func == 3):
+               print("")
+               auth_ministro()
+          elif(opc_menu_Func >= 4):
+               sys.exit()
+
+def menu_Ministro():
+     while(True):
+          opc_menu_Func = int(input(""))
+          if(opc_menu_Func == 1):
+               print("")               
+               auth_func()          
+          elif(opc_menu_Func == 2):
+               print("")
+               auth_diretor()
+          elif(opc_menu_Func == 3):
+               print("")
+               auth_ministro()
+          elif(opc_menu_Func >= 4):
+               sys.exit()
+
 # nivel 1 - todos tem acesso
 def funcionario():
      sleep(1)
@@ -36,7 +81,7 @@ def ministro():
 
      sys.exit()
 
-def compare1():     
+def auth_func():     
      print('Lendo biometria.. \n')
      sleep(1)  
 
@@ -47,7 +92,6 @@ def compare1():
      img_aps = False
      img_aps1 = False
 
-
      try: 
           percentage = imgcompare.is_equal("imagem1.jpg", file_path)
      except:
@@ -55,20 +99,14 @@ def compare1():
           menu()
 
      if  percentage:
-          # print("são iguais.")
-          # print("imagem selecionada: ", file_path)
-          funcionario() 
           
-
-     # elif img_aps1:
-     #      # print ("são iguais")
-     #      print("imagem selecionada: ", file_path)
-     #      ministro()
-
+          funcionario() 
+ 
      else:     
           print("Falha na leitura biométrica\n")
           sys.exit()
-def compare2():
+
+def auth_diretor():
      print('Lendo biometria.. \n')
      sleep(1)   
 
@@ -85,15 +123,13 @@ def compare2():
           pass
      
      if img_aps:
-          # print ("são iguais")
-          # print("imagem selecionada: ", file_path)
+          
           diretor_div()
      else:     
           print("Falha na leitura biométrica\n")
           sys.exit()
 
-
-def compare3():
+def auth_ministro():
      print('Lendo biometria.. \n')
      sleep(1)  
 
@@ -110,26 +146,26 @@ def compare3():
           pass
 
      if img_aps1:
-          # print ("são iguais")
-          # print("imagem selecionada: ", file_path)
+
           ministro()
      
      else:     
           print("Falha na leitura biométrica\n")
           sys.exit()
 
+# menu para seleção do usuario desejado
 def menu():
      while(True):
           opcMenu = int(input("Selecione o usuário: \n\n1.Funcionário\n2.Diretor\n3.Ministro\n4.Sair\n\nOpção: "))
           if(opcMenu == 1):
                print("Por favor faça a leitura biométrica Funcionário X\n")               
-               compare1()          
+               auth_func()          
           elif(opcMenu == 2):
                print("Por favor faça a leitura biométrica Diretor")
-               compare2()
+               auth_diretor()
           elif(opcMenu == 3):
                print("Por favor faça a leitura biométrica Ministro")
-               compare3()
+               auth_ministro()
           elif(opcMenu >= 4):
                sys.exit()
 
