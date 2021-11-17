@@ -1,4 +1,5 @@
 import mysql.connector
+
 # | nome_propri   |  cpf_propri     | tel_propri         | endereco_local |
 # | area_local | tipo_agrotoxico | nivel_contaminacao |                |
 
@@ -23,7 +24,8 @@ def LerFuncionario():
         for elemento in linha:
             print('',elemento,'', end='')               
         print()
-        
+    print()
+    
 # LerFuncionario()         
     # for linha in result:
     #     conteudo.append(linha[0])
@@ -54,7 +56,7 @@ def LerDiretor():
         for elemento in linha:
             print('',elemento,'', end='')
         print()
-
+        
 def LerMinistro():
     cursor.execute("SELECT * FROM tb_propriedades")
     result = cursor.fetchall()
